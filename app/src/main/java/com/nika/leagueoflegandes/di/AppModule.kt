@@ -21,7 +21,7 @@ object AppModule {
     fun provideLolApi(): LolApi{
         return  Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("asdadsa")
+            .baseUrl(SUMMONER_BASE)
             .build()
             .create()
     }
