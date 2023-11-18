@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/detailFragment2"
+        android:title="Profile"
+        android:icon="@drawable/profile_icon"/>
+
+    <item
+        android:id="@+id/championsFragment2"
+        android:title="Champions"
+        android:icon="@drawable/ic_champions"/>
+    <item
+        android:id="@+id/itemsFragment2"
+        android:title="Items"
+        android:icon="@drawable/ic_sword"/>
+    <item
+        android:id="@+id/liveGameFragment2"
+        android:title="Live Game"
+        android:icon="@drawable/ic_live"/>
+
+    <item
+        android:id="@+id/searchFragment2"
+        android:title="Search"
+        android:icon="@drawable/search"/>
+</menu>

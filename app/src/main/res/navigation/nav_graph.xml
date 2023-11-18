@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/detailFragment2"
+        android:name="com.nika.leagueoflegandes.ui.fragment.DetailFragment"
+        android:label="DetailFragment" />
+    <fragment
+        android:id="@+id/championsFragment2"
+        android:name="com.nika.leagueoflegandes.ui.fragment.ChampionsFragment"
+        android:label="ChampionsFragment" />
+    <fragment
+        android:id="@+id/itemsFragment2"
+        android:name="com.nika.leagueoflegandes.ui.fragment.ItemsFragment"
+        android:label="ItemsFragment" />
+    <fragment
+        android:id="@+id/liveGameFragment2"
+        android:name="com.nika.leagueoflegandes.ui.fragment.LiveGameFragment"
+        android:label="LiveGameFragment" />
+    <fragment
+        android:id="@+id/searchFragment2"
+        android:name="com.nika.leagueoflegandes.ui.fragment.SearchFragment"
+        android:label="SearchFragment" />
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.nika.leagueoflegandes.ui.fragment.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+    </fragment>
+</navigation>
