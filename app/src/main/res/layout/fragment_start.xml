@@ -6,8 +6,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/riot2">
 
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/loadingIndicator"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231"
+        app:indicatorColor="@color/gold"/>
+
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/et_searchUser"
         android:layout_width="348dp"
         android:layout_height="53dp"
         android:layout_marginBottom="212dp"
@@ -21,13 +33,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bt_searchUser"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
         android:text="go"
         android:backgroundTint="@color/riotRed"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintEnd_toEndOf="@+id/et_searchUser"
+        app:layout_constraintStart_toStartOf="@+id/et_searchUser"
+        app:layout_constraintTop_toBottomOf="@+id/et_searchUser" />
 </androidx.constraintlayout.widget.ConstraintLayout>

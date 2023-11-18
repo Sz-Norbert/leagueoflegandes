@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -14,12 +16,13 @@ import com.nika.leagueoflegandes.databinding.FragmentStartBinding
 import com.nika.leagueoflegandes.mvvm.StartFragmentMVVM
 import com.nika.leagueoflegandes.mvvm.StartFragmentMVVM.StartFramgentViewState
 import com.nika.leagueoflegandes.ui.activity.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class StartFragment : Fragment(R.layout.fragment_start) {
 
     lateinit var binding: FragmentStartBinding
-    val vm: StartFragmentMVVM by viewModels()
+    val vm by viewModels<StartFragmentMVVM>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,16 +38,24 @@ class StartFragment : Fragment(R.layout.fragment_start) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onGoPressed()
+        observeState()
+    }
+
+    private fun observeState() {
         vm.summonerLiveData.observe(viewLifecycleOwner) { viewState ->
             when (viewState) {
                 StartFramgentViewState.Loading -> {
-                    //showLoading
+                    showLoading()
                 }
+
                 StartFramgentViewState.NoSummerFound -> {
-                    //
+                    hideLoading()
+                    Toast.makeText(requireContext(),"////////" ,Toast.LENGTH_SHORT).show()
                 }
+
                 is StartFramgentViewState.SummonerFound -> {
-                    //
+                    hideLoading()
+                    findNavController().navigate(R.id.action_startFragment_to_detailFragment2)
                 }
             }
         }
@@ -52,10 +63,29 @@ class StartFragment : Fragment(R.layout.fragment_start) {
 
 
     private fun onGoPressed() {
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_startFragment_to_detailFragment2)
+        binding.btSearchUser.setOnClickListener {
+             val sumName= binding.etSearchUser.text
+            vm.executeCall(sumName.toString())
         }
     }
+
+    fun showLoading(){
+        with(binding){
+           loadingIndicator.show()
+           btSearchUser.isEnabled=false
+           btSearchUser.isEnabled=false
+        }
+
+    }
+
+    fun hideLoading(){
+        with(binding){
+            loadingIndicator.hide()
+            btSearchUser.isEnabled=true
+            etSearchUser.isEnabled=true
+        }
+    }
+
 
 
 }
