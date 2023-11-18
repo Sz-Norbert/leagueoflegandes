@@ -14,14 +14,28 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class StartFragmentMVVM @Inject constructor(private val repository: Repository):ViewModel() {
+class StartFragmentMVVM @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    private val _summonerLiveData= MutableLiveData<Resource<SummonerResponse>>()
-    var summonerLiveData : LiveData<Resource<SummonerResponse>> = _summonerLiveData
+    private val _summonerLiveData = MutableLiveData<StartFramgentViewState>()
+    var summonerLiveData: LiveData<StartFramgentViewState> = _summonerLiveData
 
 
-    fun executeCall(summonerName:String)=viewModelScope.launch {
-        val summonerResource =repository.getSummInfo(summonerName)
-        _summonerLiveData.value=summonerResource
+    fun executeCall(summonerName: String) = viewModelScope.launch {
+        _summonerLiveData.value = StartFramgentViewState.Loading
+        val summonerResource = repository.getSummInfo(summonerName)
+        val viewState = if (summonerResource is Resource.Success && summonerResource.data != null) {
+            StartFramgentViewState.SummonerFound(summonerResource.data)
+        } else {
+            StartFramgentViewState.NoSummerFound
+        }
+        _summonerLiveData.value = viewState
+    }
+
+    sealed interface StartFramgentViewState {
+        object Loading : StartFramgentViewState
+        object NoSummerFound : StartFramgentViewState
+
+        data class SummonerFound(val summoner: SummonerResponse) : StartFramgentViewState
+
     }
 }
