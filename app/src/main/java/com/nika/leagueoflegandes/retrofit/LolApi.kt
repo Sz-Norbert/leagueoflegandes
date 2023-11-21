@@ -9,9 +9,11 @@ import retrofit2.http.Query
 
 interface LolApi {
 
-    @GET("summoner/v4/summoners/by-name/{abc}")
+
+    @GET("by-name/{abc}")
     suspend fun getSum(
-        @Path("abc") name: String ,
+        @Path("abc") name: String,
         @Query("api_key") api_key: String = API_KEY
-    ):Response<SummonerResponse>
+    ): Response<SummonerResponse>
+
 }

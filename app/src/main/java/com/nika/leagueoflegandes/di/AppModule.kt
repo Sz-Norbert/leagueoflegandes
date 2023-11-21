@@ -23,8 +23,10 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(SUMMONER_BASE)
             .build()
-            .create()
+            .create(LolApi::class.java)
     }
+
+
 
 
     @Provides

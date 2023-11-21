@@ -16,6 +16,7 @@ import com.nika.leagueoflegandes.databinding.FragmentStartBinding
 import com.nika.leagueoflegandes.mvvm.StartFragmentMVVM
 import com.nika.leagueoflegandes.mvvm.StartFragmentMVVM.StartFramgentViewState
 import com.nika.leagueoflegandes.ui.activity.MainActivity
+import com.nika.leagueoflegandes.util.Util.Companion.BUNDLE_KEY
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -55,7 +56,12 @@ class StartFragment : Fragment(R.layout.fragment_start) {
 
                 is StartFramgentViewState.SummonerFound -> {
                     hideLoading()
-                    findNavController().navigate(R.id.action_startFragment_to_detailFragment2)
+                    val summonerName=viewState.summoner.name
+                    val sumLevel = viewState.summoner.summonerLevel
+                    val direction= StartFragmentDirections.actionStartFragmentToDetailFragment2(summonerName,
+                        sumLevel.toString()
+                    )
+                    findNavController().navigate(direction)
                 }
             }
         }
