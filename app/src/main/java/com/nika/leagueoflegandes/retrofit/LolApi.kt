@@ -1,5 +1,6 @@
 package com.nika.leagueoflegandes.retrofit
 
+import com.nika.leagueoflegandes.remote.SummonerDetailResponse
 import com.nika.leagueoflegandes.remote.SummonerResponse
 import com.nika.leagueoflegandes.util.Util.Companion.API_KEY
 import retrofit2.Response
@@ -16,4 +17,10 @@ interface LolApi {
         @Query("api_key") api_key: String = API_KEY
     ): Response<SummonerResponse>
 
+    @GET("by-summoner/{sumId}")
+    suspend fun getSumDetail(
+        @Path("sumId") sumId:String,
+        @Query("api_key") api_key: String = API_KEY
+
+    ):Response<SummonerDetailResponse>
 }

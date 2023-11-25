@@ -34,5 +34,7 @@ class DetailFragment():Fragment(R.layout.fragment_detail) {
         binding.tvSumLev.text=args.sumLev
         binding.tvSumName.text=args.sumName
 
+
+
     }
 }

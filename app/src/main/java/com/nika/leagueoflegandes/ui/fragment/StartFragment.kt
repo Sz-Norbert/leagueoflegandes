@@ -15,6 +15,7 @@ import com.nika.leagueoflegandes.R
 import com.nika.leagueoflegandes.databinding.FragmentStartBinding
 import com.nika.leagueoflegandes.mvvm.StartFragmentMVVM
 import com.nika.leagueoflegandes.mvvm.StartFragmentMVVM.StartFramgentViewState
+import com.nika.leagueoflegandes.remote.SummonerResponse
 import com.nika.leagueoflegandes.ui.activity.MainActivity
 import com.nika.leagueoflegandes.util.Util.Companion.BUNDLE_KEY
 import dagger.hilt.android.AndroidEntryPoint

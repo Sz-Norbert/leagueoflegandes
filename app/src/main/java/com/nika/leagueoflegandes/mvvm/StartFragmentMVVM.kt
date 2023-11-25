@@ -1,15 +1,14 @@
 package com.nika.leagueoflegandes.mvvm
 
-import android.util.Log
+
 import androidx.lifecycle.*
 import com.nika.leagueoflegandes.other.Resource
 import com.nika.leagueoflegandes.remote.SummonerResponse
 import com.nika.leagueoflegandes.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.isActive
+
 import kotlinx.coroutines.launch
+import retrofit2.Response
 
 import javax.inject.Inject
 
@@ -30,6 +29,15 @@ class StartFragmentMVVM @Inject constructor(private val repository: Repository) 
         }
         _summonerLiveData.value = viewState
     }
+
+
+    suspend fun <T> executeCall(apiCall: suspend ()->Response<T>,liveData: MutableLiveData<StartFramgentViewState>){
+        
+
+
+    }
+
+
 
     sealed interface StartFramgentViewState {
         object Loading : StartFramgentViewState
