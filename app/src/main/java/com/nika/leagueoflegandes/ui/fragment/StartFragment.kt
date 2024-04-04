@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.nika.leagueoflegandes.R
 import com.nika.leagueoflegandes.databinding.FragmentStartBinding
 import com.nika.leagueoflegandes.mvvm.StartFragmentMVVM
-import com.nika.leagueoflegandes.mvvm.StartFragmentMVVM.StartFramgentViewState
+import com.nika.leagueoflegandes.mvvm.view_states.StartFramgentViewState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,9 +26,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentStartBinding.inflate(layoutInflater, container, false)
-
-
+        binding = FragmentStartBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -53,12 +51,14 @@ class StartFragment : Fragment(R.layout.fragment_start) {
                 is StartFramgentViewState.SummonerFound -> {
                     hideLoading()
                     val summonerName=viewState.summoner.name
-                    val sumLevel = viewState.summoner.summonerLevel
+                    val sumLevel=viewState.summoner.summonerLevel
                     val direction= StartFragmentDirections.actionStartFragmentToDetailFragment2(summonerName,
-                        sumLevel.toString()
+                        sumLevel
                     )
                     findNavController().navigate(direction)
                 }
+
+                else -> {}
             }
         }
     }
@@ -71,22 +71,22 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         }
     }
 
-    fun showLoading(){
-        with(binding){
-           loadingIndicator.show()
-           btSearchUser.isEnabled=false
-           btSearchUser.isEnabled=false
-        }
-
-    }
-
-    fun hideLoading(){
-        with(binding){
-            loadingIndicator.hide()
-            btSearchUser.isEnabled=true
-            etSearchUser.isEnabled=true
+    fun showLoading() {
+        with(binding) {
+            progressBar.visibility=View.VISIBLE
+            etSearchUser.visibility=View.INVISIBLE
+            btSearchUser.visibility=View.INVISIBLE;
         }
     }
+
+    fun hideLoading() {
+        with(binding) {
+            progressBar.visibility=View.INVISIBLE
+            etSearchUser.visibility=View.VISIBLE
+            btSearchUser.visibility=View.VISIBLE;
+        }
+    }
+
 
 
 

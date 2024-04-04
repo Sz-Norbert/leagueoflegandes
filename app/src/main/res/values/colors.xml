@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="textColor">#F0E6D2</color>
+    <color name="textColor">#d7fff7</color>
     <color name="gold">#d5b978</color>
     <color name="transparent">#00000000</color>
     <color name="winGreen">#87f090</color>
@@ -11,4 +11,5 @@
     <color name="numbers">#A09B8C</color>
     <color name="gray">#5B5A56</color>
     <color name="riotRed">#cb353c</color>
+    <color name="background">#2e457d</color>
 </resources>

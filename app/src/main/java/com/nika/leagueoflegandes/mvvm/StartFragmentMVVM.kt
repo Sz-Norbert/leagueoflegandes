@@ -2,13 +2,12 @@ package com.nika.leagueoflegandes.mvvm
 
 
 import androidx.lifecycle.*
+import com.nika.leagueoflegandes.mvvm.view_states.StartFramgentViewState
 import com.nika.leagueoflegandes.other.Resource
-import com.nika.leagueoflegandes.remote.models.SummonerResponse
 import com.nika.leagueoflegandes.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 import javax.inject.Inject
 
@@ -33,11 +32,5 @@ class StartFragmentMVVM @Inject constructor(private val repository: Repository) 
     }
 
 
-    sealed interface StartFramgentViewState {
-        object Loading : StartFramgentViewState
-        object NoSummerFound : StartFramgentViewState
 
-        data class SummonerFound(val summoner: SummonerResponse) : StartFramgentViewState
-
-    }
 }
