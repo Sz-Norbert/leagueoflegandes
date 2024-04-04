@@ -1,7 +1,7 @@
 package com.nika.leagueoflegandes.retrofit
 
-import com.nika.leagueoflegandes.remote.SummonerDetailResponse
-import com.nika.leagueoflegandes.remote.SummonerResponse
+import com.nika.leagueoflegandes.remote.models.SummonerDetailResponse
+import com.nika.leagueoflegandes.remote.models.SummonerResponse
 import com.nika.leagueoflegandes.util.Util.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

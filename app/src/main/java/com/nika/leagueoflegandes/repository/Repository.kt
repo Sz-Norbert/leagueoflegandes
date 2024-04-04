@@ -1,8 +1,10 @@
 package com.nika.leagueoflegandes.repository
 
+import android.content.Entity
+import com.nika.leagueoflegandes.db.UserDao
 import com.nika.leagueoflegandes.other.Resource
-import com.nika.leagueoflegandes.remote.SummonerDetailResponse
-import com.nika.leagueoflegandes.remote.SummonerResponse
+import com.nika.leagueoflegandes.remote.models.SummonerDetailResponse
+import com.nika.leagueoflegandes.remote.models.SummonerResponse
 import com.nika.leagueoflegandes.retrofit.LolApi
 import retrofit2.Response
 import javax.inject.Inject
@@ -13,7 +15,8 @@ import javax.inject.Singleton
 class Repository @Inject constructor (
     val summonerApi : LolApi,
     @Named("sumDetail")
-    val sumDetailApi :LolApi
+    val sumDetailApi :LolApi,
+    val userDao: UserDao
 ) {
 
 
@@ -22,13 +25,14 @@ class Repository @Inject constructor (
             summonerApi.getSum(summonerName)
         }
     }
-
     suspend fun getSumDetails(encryptedSummonerId : String):Resource<SummonerDetailResponse>{
         return safeCall {
             sumDetailApi.getSumDetail(encryptedSummonerId)
         }
     }
-
+    suspend fun insertUser(user:SummonerResponse){
+        userDao.upsertUser(user)
+    }
 
     suspend fun <T> safeCall(apiCall:suspend ()-> Response<T>) :Resource<T>{
 

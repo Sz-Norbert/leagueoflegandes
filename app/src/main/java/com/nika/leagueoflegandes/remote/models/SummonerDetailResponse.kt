@@ -1,5 +1,6 @@
-package com.nika.leagueoflegandes.remote
+package com.nika.leagueoflegandes.remote.models
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 data class SummonerDetailResponse(
