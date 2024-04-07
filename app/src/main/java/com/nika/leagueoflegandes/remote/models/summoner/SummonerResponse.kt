@@ -1,13 +1,17 @@
-package com.nika.leagueoflegandes.remote
+package com.nika.leagueoflegandes.remote.models.summoner
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-
+@Entity("users")
 data class SummonerResponse(
-    @SerializedName("accountId")
-    val accountId: String,
+    @PrimaryKey(autoGenerate = false)
     @SerializedName("id")
     val id: String,
+    @SerializedName("accountId")
+    val accountId: String,
+
     @SerializedName("name")
     val name: String,
     @SerializedName("profileIconId")

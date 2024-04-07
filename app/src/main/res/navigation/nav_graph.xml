@@ -12,7 +12,10 @@
         <argument
             android:name="sumName"
             app:argType="string" />
-        <argument android:name="sumLev" />
+        <argument
+            android:name="sumLevel"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/championsFragment2"

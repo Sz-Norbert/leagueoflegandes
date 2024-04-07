@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bk1">
+    android:background="@color/background">
 
 
     <ImageView
@@ -22,26 +22,26 @@
         android:id="@+id/tvSumName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
         android:text="Norbii1234"
         android:textColor="@color/textColor"
         android:textSize="@dimen/text_size"
-        app:layout_constraintBottom_toTopOf="@+id/tv_sumDiv"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toEndOf="@+id/frameLayout" />
+        app:layout_constraintStart_toEndOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/ivRank"
+        app:layout_constraintEnd_toEndOf="@+id/ivRank"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView">
+        app:layout_constraintStart_toStartOf="@+id/ivRank"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
-        <!-- CircleImageView -->
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_sumIcon"
@@ -64,7 +64,7 @@
     </FrameLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivRank"
         android:layout_width="86dp"
         android:layout_height="85dp"
         android:layout_marginStart="12dp"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/tv_sumDiv"
+        android:id="@+id/tv_sumTier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
@@ -82,13 +82,13 @@
         android:text="Gold I"
         android:textColor="@color/textColor"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintBottom_toTopOf="@+id/tvLp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toEndOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/ivRank" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvLp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
@@ -96,9 +96,9 @@
         android:textColor="@color/textColor"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/tv_sumDiv"
+        app:layout_constraintEnd_toEndOf="@+id/tv_sumTier"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_sumDiv" />
+        app:layout_constraintStart_toStartOf="@+id/tv_sumTier" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -111,28 +111,28 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvWin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="10W"
         android:textColor="@color/winGreen"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvLp"
+        app:layout_constraintStart_toEndOf="@+id/tvLp"
+        app:layout_constraintTop_toTopOf="@+id/tvLp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvLose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:text="10L"
         android:textColor="@color/loseRed"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvWin"
+        app:layout_constraintStart_toEndOf="@+id/tvWin"
+        app:layout_constraintTop_toTopOf="@+id/tvWin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

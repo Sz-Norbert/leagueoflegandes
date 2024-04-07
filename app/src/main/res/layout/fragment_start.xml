@@ -4,19 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/riot2">
-
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/loadingIndicator"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.231"
-        app:indicatorColor="@color/gold"/>
+    android:background="@drawable/riot2"
+    android:outlineSpotShadowColor="#F10F0F">
 
     <EditText
         android:id="@+id/et_searchUser"
@@ -37,9 +26,27 @@
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
-        android:text="go"
         android:backgroundTint="@color/riotRed"
+        android:text="go"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/et_searchUser"
         app:layout_constraintStart_toStartOf="@+id/et_searchUser"
-        app:layout_constraintTop_toBottomOf="@+id/et_searchUser" />
+        app:layout_constraintTop_toBottomOf="@+id/et_searchUser"
+        app:layout_constraintVertical_bias="0.156" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="#FF0000"
+        android:outlineAmbientShadowColor="#FF0000"
+        android:outlineSpotShadowColor="#F11010"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325" />
 </androidx.constraintlayout.widget.ConstraintLayout>
