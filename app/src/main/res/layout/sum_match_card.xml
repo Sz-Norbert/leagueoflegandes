@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="400dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_centerInParent="true"
-    android:layout_margin="10dp"
-    android:background="@drawable/custom_rv_card_match"
-
-    android:padding="5dp">
+    android:layout_margin="5dp"
+    app:cardCornerRadius="8dp"
+    android:id="@+id/cardview"
+    app:cardBackgroundColor="@color/winGreen"
+    app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:orientation="vertical">
             <ImageView
                 android:layout_width="80dp"
-                android:id="@+id/ic_champ"
+                android:id="@+id/iv_champ"
                 android:src="@drawable/annie"
                 android:layout_height="80dp"/>
             <TextView
@@ -37,47 +37,48 @@
                 android:textColor="#0000ff"
                 android:text="10/1/7"/>
         </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="40dp"-->
+<!--                android:id="@+id/iv_spell1"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:src="@drawable/flash"/>-->
+<!--            <ImageView-->
+<!--                android:layout_width="40dp"-->
+<!--                android:id="@+id/iv_spell2"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/ignite"/>-->
+
+
+<!--        </LinearLayout>-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+<!--            <ImageView-->
+<!--                android:layout_width="40dp"-->
+<!--                android:id="@+id/iv_run1"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:src="@drawable/conqueror"/>-->
+<!--            <ImageView-->
+<!--                android:layout_width="40dp"-->
+<!--                android:id="@+id/iv_run2"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/first_strike"/>-->
+
+
+<!--        </LinearLayout>-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="40dp"
-                android:id="@+id/iv_spell1"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/flash"/>
-            <ImageView
-                android:layout_width="40dp"
-                android:id="@+id/iv_spell2"
-                android:layout_marginTop="5dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ignite"/>
 
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="40dp"
-                android:id="@+id/iv_run1"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/conqueror"/>
-            <ImageView
-                android:layout_width="40dp"
-                android:id="@+id/iv_run2"
-                android:layout_marginTop="5dp"
-                android:layout_height="40dp"
-                android:src="@drawable/first_strike"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -142,7 +143,6 @@
             android:layout_height="50dp"
             android:padding="5dp"
             android:layout_gravity="center"
-            android:src="@drawable/rabadonn"
             android:id="@+id/iv_item7"/>
 
 
@@ -152,4 +152,4 @@
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

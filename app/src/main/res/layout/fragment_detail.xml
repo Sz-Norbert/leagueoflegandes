@@ -1,138 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:fitsSystemWindows="true"
+    android:padding="5dp">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:background="@color/background"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_marginTop="16dp"
+                android:padding="3dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/lol" />
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="371dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/lol"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvSumName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Norbii1234"
-        android:textColor="@color/textColor"
-        android:textSize="@dimen/text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toEndOf="@+id/frameLayout"
-        app:layout_constraintTop_toTopOf="@+id/frameLayout" />
-
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/ivRank"
-        app:layout_constraintEnd_toEndOf="@+id/ivRank"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/ivRank"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_sumIcon"
-            android:layout_width="80dp"
-            android:layout_height="64dp"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic1" />
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <TextView
-            android:id="@+id/tv_sumLev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_marginBottom="16dp"
-            android:text="376"
-            android:textColor="@color/textColor"
-            android:textSize="18sp" />
-
-    </FrameLayout>
-
-    <ImageView
-        android:id="@+id/ivRank"
-        android:layout_width="86dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/division"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_sumTier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="8dp"
-        android:text="Gold I"
-        android:textColor="@color/textColor"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvLp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toEndOf="@+id/ivRank" />
-
-    <TextView
-        android:id="@+id/tvLp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:text="21lp"
-        android:textColor="@color/textColor"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/tv_sumTier"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_sumTier" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="409dp"
-        android:layout_height="309dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvWin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="10W"
-        android:textColor="@color/winGreen"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvLp"
-        app:layout_constraintStart_toEndOf="@+id/tvLp"
-        app:layout_constraintTop_toTopOf="@+id/tvLp" />
-
-    <TextView
-        android:id="@+id/tvLose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:text="10L"
-        android:textColor="@color/loseRed"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvWin"
-        app:layout_constraintStart_toEndOf="@+id/tvWin"
-        app:layout_constraintTop_toTopOf="@+id/tvWin" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <FrameLayout
+                    android:id="@+id/frameLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSumName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvSumName">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_sumIcon"
+                        android:layout_width="80dp"
+                        android:layout_height="65dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="16dp"
+                        android:src="@drawable/ic1" />
+
+                    <TextView
+                        android:id="@+id/tv_sumLev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|bottom"
+                        android:layout_marginBottom="16dp"
+                        android:text="376"
+                        android:textColor="@color/textColor"
+                        android:textSize="18sp" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvSumName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="36dp"
+                    android:layout_toRightOf="@id/frameLayout"
+                    android:text="Norbii1234"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/text_size" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivRank"
+                    android:layout_width="86dp"
+                    android:layout_height="85dp"
+                    android:src="@drawable/division" />
+
+                <TextView
+                    android:id="@+id/tv_sumTier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/ivRank"
+                    android:text="Gold I"
+                    android:textColor="@color/textColor"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_sumTier"
+                    android:layout_toRightOf="@+id/ivRank"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="21lp"
+                        android:textColor="@color/textColor"
+                        android:textSize="20sp" />
+
+
+                    <TextView
+                        android:id="@+id/tvWin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="10W"
+                        android:textColor="@color/winGreen"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tvLose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="19dp"
+                        android:text="10L"
+                        android:textColor="@color/loseRed"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:indeterminateTint="#FF0000"
+                    android:outlineAmbientShadowColor="#FF0000"
+                    android:outlineSpotShadowColor="#F11010"
+                    android:visibility="visible"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
